@@ -1,1 +1,1 @@
-include ':app', ':hometemperature_phone'
+include ':app', ':hometemperature_phone', ':android_lib'
