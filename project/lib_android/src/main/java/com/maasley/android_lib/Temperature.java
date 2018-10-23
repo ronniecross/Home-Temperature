@@ -19,11 +19,28 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * A class who's intention is to retrieve the temperature from a Philips Hue temperature sensor
+ */
 public class Temperature {
-    String urlString = "http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11";
 
+    /**
+     * The RESTful URL of the temperature sensor
+     */
+    String urlString = "";
+
+    /**
+     * Constructs a new Temperature object with the given URL
+     * @param URL
+     */
+    public Temperature(String URL) {
+        urlString = URL;
+    }
+
+    /**
+     * @return a JSONObject containing the properties of a sensor
+     */
     private JSONObject getSensor() {
-
         SensorRetriever retriever = new SensorRetriever();
         JSONObject sensor = null;
         try {
@@ -32,10 +49,15 @@ public class Temperature {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return sensor;
     }
 
+    /**
+     * @return The current temperature reported by the temperature sensor, as a string.
+     */
     public String getTemp() {
         JSONObject sensor = getSensor();
         JSONObject state = getSensorState(sensor);
@@ -50,6 +72,9 @@ public class Temperature {
         return result;
     }
 
+    /**
+     * @return The date the temperature was last recorded by the temperature sensor, as a string.
+     */
     public String getLastUpdate() {
         JSONObject sensor = getSensor();
         JSONObject state = getSensorState(sensor);
@@ -67,6 +92,10 @@ public class Temperature {
         return result;
     }
 
+    /**
+     * @param sensor a JSONObject representing a temperature sensor
+     * @return a JSONObject containing the state parameters of the sensor
+     */
     private JSONObject getSensorState(JSONObject sensor) {
         JSONObject sensorState = null;
         try {
@@ -78,11 +107,16 @@ public class Temperature {
     }
 
 
-
-
-
-
+    /**
+     * A class that extends AsyncTask, intended for reading HTTP data to retrieve
+     * a JSON representation of a temperature sensor from the philips Hue API
+     */
     private class SensorRetriever extends AsyncTask<Void, Void, JSONObject> {
+
+        /**
+         * @param voids N/A
+         * @return a JSONObject representing a temperature sensor
+         */
         @Override
         protected JSONObject doInBackground(Void... voids) {
             JSONObject sensor = null;
@@ -105,6 +139,10 @@ public class Temperature {
             return sensor;
         }
 
+        /**
+         * @param in an InputStream object for the RESTful URL of the temperature sensor
+         * @return a String representation of the temperature sensor
+         */
         private String streamToString(InputStream in) {
             String result = "";
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -121,6 +159,11 @@ public class Temperature {
             return result;
         }
 
+        /**
+         * Converts a String object to a JSON object
+         * @param jsonString a string who's format represents JSON data
+         * @return a JSONObject constructed from the jsonString
+         */
         private JSONObject getJsonFromString(String jsonString) {
             JSONObject json = null;
             try {
