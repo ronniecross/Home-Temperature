@@ -8,9 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android_lib" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/hometemperature_phone" />
+            <option value="$PROJECT_DIR$/app_phone" />
+            <option value="$PROJECT_DIR$/app_watch" />
+            <option value="$PROJECT_DIR$/lib_android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
