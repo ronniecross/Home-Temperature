@@ -1,1 +1,1 @@
-include ':app_watch', ':lib_android'
+include ':home_temp_watch', ':lib_android', ':home_temp_phone'

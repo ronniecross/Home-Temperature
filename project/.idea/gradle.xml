@@ -8,7 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app_watch" />
+            <option value="$PROJECT_DIR$/home_temp_phone" />
+            <option value="$PROJECT_DIR$/home_temp_watch" />
             <option value="$PROJECT_DIR$/lib_android" />
           </set>
         </option>
