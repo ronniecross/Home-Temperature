@@ -1,4 +1,4 @@
-package com.maasley.home_temperature;
+package com.maasley.android_lib;
 
 import android.os.AsyncTask;
 import android.util.Log;

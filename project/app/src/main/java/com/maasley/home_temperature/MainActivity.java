@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.widget.TextView;
 
+import com.maasley.android_lib.Temperature;
+
 public class MainActivity extends WearableActivity {
 
     private TextView mTextView;
