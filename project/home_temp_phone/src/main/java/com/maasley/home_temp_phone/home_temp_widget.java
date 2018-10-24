@@ -18,8 +18,6 @@ public class home_temp_widget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-        Toast toast = Toast.makeText(context,"Test",Toast.LENGTH_LONG);
-        toast.show();
         Temperature t = new Temperature("http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11");
         CharSequence widgetText = t.getTemp();
         // Construct the RemoteViews object
