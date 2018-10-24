@@ -7,6 +7,8 @@ import android.widget.RemoteViews;
 
 import com.maasley.android_lib.Temperature;
 
+import java.util.Random;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -17,6 +19,7 @@ public class home_temp_widget extends AppWidgetProvider {
 
         Temperature t = new Temperature("http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11");
         CharSequence widgetText = t.getTemp();
+        widgetText = String.valueOf(getRandom());
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.home_temp_widget);
         views.setTextViewText(R.id.appwidget_temp, widgetText);
@@ -29,13 +32,14 @@ public class home_temp_widget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
+
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }
 
     @Override
     public void onEnabled(Context context) {
-        updateTemp(context);
+        //updateTemp(context);
         // Enter relevant functionality for when the first widget is created
     }
 
@@ -44,11 +48,10 @@ public class home_temp_widget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    public void updateTemp(Context context) {
-        Temperature t = new Temperature("http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11");
-        CharSequence widgetText = t.getTemp();
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.home_temp_widget);
-        views.setTextViewText(R.id.appwidget_temp, widgetText);
+    public static int getRandom() {
+        Random rand = new Random();
+        int n = rand.nextInt(20) +10;
+        return n;
     }
 }
 
