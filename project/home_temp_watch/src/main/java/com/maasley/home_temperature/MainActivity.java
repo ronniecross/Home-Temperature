@@ -10,7 +10,7 @@ public class MainActivity extends WearableActivity {
 
     private TextView temp;
     private TextView dateText;
-    private Temperature t = new Temperature("http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11");
+    private Temperature t = new Temperature("http://192.168.1.5/api/[REMOVED-REPLACE-WITH-API-KEY]/sensors/11");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
