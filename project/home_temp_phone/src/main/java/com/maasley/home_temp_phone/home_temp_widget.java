@@ -18,7 +18,7 @@ public class home_temp_widget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-        Temperature t = new Temperature("http://192.168.1.5/api/EthzAaSJ2U85HX5iD3fiQaLhew9xGqyNh8h5RlFa/sensors/11");
+        Temperature t = new Temperature("http://192.168.1.5/api/[REMOVED-REPLACE-WITH-API-KEY]/sensors/11");
         CharSequence widgetText = t.getTemp();
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.home_temp_widget);
